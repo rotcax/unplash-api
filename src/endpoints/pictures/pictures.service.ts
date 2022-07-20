@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { FetchService, StorageService } from '../../services';
 import { v4 as uuid } from 'uuid';
-import { UploadFromUrlDto, UploadFromUrlParamsDto } from './pictures.dto';
+import {
+  FindByKeywordParamsDto,
+  UploadFromUrlDto,
+  UploadFromUrlParamsDto,
+} from './pictures.dto';
 
 @Injectable()
 export class PicturesService {
@@ -11,7 +15,7 @@ export class PicturesService {
     private readonly storageService: StorageService,
   ) {}
 
-  findByKeyword(params): Observable<any[]> {
+  findByKeyword(params: FindByKeywordParamsDto): Observable<any[]> {
     return this.fetchService.makeRequest(
       `${process.env.UNPLASH_URL}/search/photos`,
       params,
