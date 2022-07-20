@@ -6,6 +6,7 @@ import {
   FindByKeywordParamsDto,
   UploadFromUrlDto,
   UploadFromUrlParamsDto,
+  FindByKeywordDto,
 } from './pictures.dto';
 
 @ApiTags('Pictures')
@@ -14,7 +15,9 @@ export class PicturesController {
   constructor(private readonly picturesService: PicturesService) {}
 
   @Get()
-  findByKeyword(@Query() params: FindByKeywordParamsDto): Observable<any> {
+  findByKeyword(
+    @Query() params: FindByKeywordParamsDto,
+  ): Observable<FindByKeywordDto> {
     return this.picturesService.findByKeyword(params);
   }
 

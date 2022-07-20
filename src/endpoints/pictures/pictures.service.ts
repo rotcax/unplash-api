@@ -6,6 +6,7 @@ import {
   FindByKeywordParamsDto,
   UploadFromUrlDto,
   UploadFromUrlParamsDto,
+  FindByKeywordDto,
 } from './pictures.dto';
 
 @Injectable()
@@ -15,7 +16,7 @@ export class PicturesService {
     private readonly storageService: StorageService,
   ) {}
 
-  findByKeyword(params: FindByKeywordParamsDto): Observable<any[]> {
+  findByKeyword(params: FindByKeywordParamsDto): Observable<FindByKeywordDto> {
     return this.fetchService.makeRequest(
       `${process.env.UNPLASH_URL}/search/photos`,
       params,

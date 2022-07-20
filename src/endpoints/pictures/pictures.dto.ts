@@ -23,6 +23,17 @@ export class FindByKeywordParamsDto {
   orientation?: string;
 }
 
+export class FindByKeywordDto {
+  @ApiProperty()
+  total: number;
+
+  @ApiProperty()
+  total_pages: number;
+
+  @ApiProperty()
+  results: any[];
+}
+
 export class UploadFromUrlParamsDto {
   @ApiProperty({ required: true })
   id: string;
